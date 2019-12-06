@@ -1,0 +1,49 @@
+<div class="container row" style="display: flex;">
+  <div class="card col-sm" style="width: 18rem; margin:2rem 2rem; ">
+    <a *ngIf="user.email == 'admin@fountane.com'" routerLink='/register'>Register</a>
+    <div class="card-body">
+      <h5 class="card-title">Add Entries</h5>
+      <div>
+        <h6 class="card-subtitle mb-2 text-muted">Param 2</h6>
+        <p class="card-text"><input type="text" [(ngModel)]="p2" name="p2"></p>
+        <h6 class="card-subtitle mb-2 text-muted">Param 3</h6>
+        <p class="card-text"><input type="text" [(ngModel)]="p3" name="p3"></p>
+        <h6 class="card-subtitle mb-2 text-muted">Param 4</h6>
+        <p class="card-text"><input type="text" [(ngModel)]="p4" name="p4"></p>
+      </div>
+      <button (click)="createData();">
+        Create
+      </button > 
+
+    </div>
+  </div>
+  <div class="card col-sm" style="width: 18rem; margin:2rem 5rem; ">
+    <div class="card-body">
+      <ul class="nav nav-pills" role="tablist" style="display: flex;">
+        <li class="nav-item" style="display:unset;">
+          <a class="nav-link" data-toggle="tab" data-target="param2" role="tab" (click)="selected='param2'">Param 2</a>
+        </li>
+        <li class="nav-item" style="display: unset;">
+          <a class="nav-link" data-toggle="tab" data-target="param3" role="tab" (click)="selected='param3'">Param 3</a>
+        </li>
+        <li class="nav-item" style="display: unset;">
+          <a class="nav-link" data-toggle="tab" data-target="param4" role="tab" (click)="selected='param4'">Param 4</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-panel container" role="tabpanel" id="param2" *ngIf="selected=='param2'">
+          <app-param2></app-param2>
+        </div>
+        <div class="tab-panel container" role="tabpanel" id="param3" *ngIf="selected=='param3'">
+          <app-param3></app-param3>
+        </div>
+        <div class="tab-panel container" role="tabpanel" id="param4" *ngIf="selected=='param4'">
+          <app-param4></app-param4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card col-sm" style="width: 18rem; margin:2rem 5rem; ">
+
+  </div>
+</div>

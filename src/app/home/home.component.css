@@ -1,0 +1,9 @@
+.nav-item{
+    background-color: burlywood;
+    width:10rem;
+    margin:0.3rem;
+}
+
+.tab-panel{
+    border: solid antiquewhite 0.03rem;
+}

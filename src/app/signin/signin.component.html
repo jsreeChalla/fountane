@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card" style="width: 18rem; margin:5rem 8rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Sign In</h5>
+            <div>
+                <h6 class="card-subtitle mb-2 text-muted">Email Id</h6>
+                <p class="card-text"><input type="email" [(ngModel)]="email" name="email"></p>
+            </div>
+            <div>
+                <h6 class="card-subtitle mb-2 text-muted">Password</h6>
+                <p class="card-text"><input type="password" [(ngModel)]="password"></p>
+            </div>
+            <div class="row">
+                <a href="#" class="col-sm card-link" (click)="submit();">Sign In</a>
+            </div>
+           
+        </div>
+    </div>
+</div>
