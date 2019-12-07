@@ -36,9 +36,6 @@ export class RegisterComponent implements OnInit {
       res = false;
       alert("Password has to be mininium of 5 characters");
     }else{
-      if(!res){
-      alert("Check your data");
-      }else{
         let payload = {
           "first_name":this.fname,
           "middle_name":this.mname,
@@ -55,7 +52,6 @@ export class RegisterComponent implements OnInit {
           }
         })
       }
-    }
   }
 
 }

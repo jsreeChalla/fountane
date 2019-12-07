@@ -32,13 +32,13 @@
       </ul>
       <div class="tab-content">
         <div class="tab-panel container" role="tabpanel" id="param2" *ngIf="selected=='param2'">
-          <app-param2></app-param2>
+          <app-param2 [param2Data]="param2Data"></app-param2>
         </div>
         <div class="tab-panel container" role="tabpanel" id="param3" *ngIf="selected=='param3'">
-          <app-param3></app-param3>
+          <app-param3 [param3Data]="param3Data"></app-param3>
         </div>
         <div class="tab-panel container" role="tabpanel" id="param4" *ngIf="selected=='param4'">
-          <app-param4></app-param4>
+          <app-param4 [param4Data]="param4Data"></app-param4>
         </div>
       </div>
     </div>

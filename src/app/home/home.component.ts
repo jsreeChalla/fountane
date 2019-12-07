@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonServicesService } from '../common-services.service';
-
+import * as _ from 'lodash';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   p3:string = "";
   p4:string = "";
   user =JSON.parse(localStorage.getItem('user')) || {};
+  param2Data: {};
+  param3Data:{};
+  param4Data:{};
    
   constructor(public _commonService: CommonServicesService) { }
 
@@ -29,13 +32,17 @@ export class HomeComponent implements OnInit {
       if(!resp){
         alert("Data not entered")
       }else{
-        console.log(resp)
+        console.log(resp,"hdsflsaflds")
       }
     });
   }
   getData():any{
     this._commonService.getAllData().subscribe((data):any =>{
-      this.allData = data['cruds'];
+      let allData = data['cruds'];
+      console.log(allData)
+      this.param2Data = _.groupBy(allData,'param2');
+        this.param3Data = _.groupBy(allData,'param3');
+        this.param4Data = _.groupBy(allData,'param4');
     });
   }
 

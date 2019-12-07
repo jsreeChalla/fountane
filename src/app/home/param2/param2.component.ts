@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-param2',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./param2.component.css']
 })
 export class Param2Component implements OnInit {
-
+  @Input('param2Data') param2Data:any;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.param2Data)
   }
 
 }

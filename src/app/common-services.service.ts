@@ -7,24 +7,27 @@ import {map} from 'rxjs/operators'
 })
 export class CommonServicesService {
   headers: any;
+  url:string="";
   constructor(private http: HttpClient) {
       this.headers = new Headers();
       this.headers.append('Content-Type',"application/x-www-form-urlencoded");
   }
 
   registerUser(data:any){
+    this.url =environment.serverUrl;
     let body = data;
-    body.salt =data.first_name;
+    body.salt = data.first_name;
     body.sex =0;
     body.role ='abc';
-    this.headers['Content-Type']="application/json";
-    this.headers['X-AUTH-TOKEN']= localStorage.getItem('token');
+    this.headers['Content-Type']="application/json;charset=utf-8";
+    this.headers['X-AUTH-TOKEN']=localStorage.getItem('token');
     body.header= this.headers;
-    return this.http.post<any>(environment.serverUrl+'register',body).pipe(map(resp=>{
+    return this.http.post<any>(this.url+'register',body).pipe(map(resp=>{
       if(resp){
         console.log(resp);
         return resp;
       }else{
+        console.log("djkhfjghlkjagk")
         return "";
       }
     }))
@@ -48,9 +51,10 @@ export class CommonServicesService {
 
   addData(data:any){
     let body = data;
-    this.headers.append('X-AUTH-TOKEN',localStorage.getItem('token'));
+    this.headers['X-AUTH-TOKEN']=localStorage.getItem('token');
+    this.headers['Content-Type']="application/json;charset=utf-8";
     body["header"] = this.headers;
-    return this.http.post<any>(environment.serverUrl+'', body).pipe(map(resp=>{
+    return this.http.post<any>(environment.serverUrl+'create/crud/', body).pipe(map(resp=>{
       if(resp){
         return resp;
       }else{
@@ -60,7 +64,6 @@ export class CommonServicesService {
   }
 
   getAllData(){
-    let list :any = [];
     return this.http.get(environment.serverUrl+'all/crud');
   }
 }
